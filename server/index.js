@@ -14,7 +14,7 @@ io.on('connection', (socket) => {
 
     socket.on('message', (message) =>     {
         console.log(message);
-        io.emit('message', `${socket.id} : ${message}` );   
+        io.emit('message', `${socket.id} :\n ${message}` );   
     });
 });
 
