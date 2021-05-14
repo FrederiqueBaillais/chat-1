@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="./js/script.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2.0.4/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="overflow-hidden">
+
+    <main class="h-4/6 w-screen bg-gray-700 p-2">
+
+        <div class="h-screen flex flex-row shadow-2xl rounded-lg align-items lg:mx-24">
+            <div id="nav" class="flex flex-col lg:w-2/12 w-3/12 text-white bg-gray-800 rounded-l">
+              <div class="text-md text-left bg-gray-900 py-8 pt-8 text-center rounded-l">Online Now</div>
+        </div>
+    
+    
+        <div id="chat" class="h-screen right px-8 pt-6 lg:w-10/12 w:9/12 text-gray-800 bg-gray-100 rounded-r">
+            <span class="text-5xl text-bold">Live Chat  </span>
+            <span class="text-md text-blue-400">powered by socket.io</span>
+
+            <hr class="h-4">
+    
+            <div id="messages" class="no-scrollbar overflow-auto h-4/6"></div>
+
+            <hr class="h-2">
+
+            <form id="messageForm" action="">
+                <input 
+                    class="rounded px-4 py-3 mt-3 w-2/3 border focus:outline-none shadow"
+                    type="text" 
+                    name="msg"
+                    placeholder="message" 
+                    maxlength="50">
+                <button class="float-right lg:float-none py-3 px-4 mt-3 bg-blue-400 text-gray-100">Send</button>
+            </form>
+    
+        </div>
+    </main> 
+
+</body>
+
+</html>
