@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script defer src="./js/script.js"></script>
+    <script defer src="./JS/script.js"></script>
     <link href="https://unpkg.com/tailwindcss@^2.0.4/dist/tailwind.min.css" rel="stylesheet">
 
     <style>
@@ -23,6 +23,7 @@
         <div class="h-screen flex flex-row shadow-2xl rounded-lg align-items lg:mx-24">
             <div id="nav" class="flex flex-col lg:w-2/12 w-3/12 text-white bg-gray-800 rounded-l">
               <div class="text-md text-left bg-gray-900 py-8 pt-8 text-center rounded-l">Online Now</div>
+              <div id="usersList" class="mt-4 text-center"></div>
         </div>
     
     
@@ -42,7 +43,7 @@
                     type="text" 
                     name="msg"
                     placeholder="message" 
-                    maxlength="50">
+                    maxlength="300">
                 <button class="float-right lg:float-none py-3 px-4 mt-3 bg-blue-400 text-gray-100">Send</button>
             </form>
     

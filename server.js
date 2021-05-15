@@ -22,7 +22,7 @@ database.once('open',()=>console.log("Connected to the Database"))
 
 const Messages = require('./models/messages');
 const Users = database.collection('users');
-var name = "John Doe";
+var name = "Visitor";
 
 // Index.html at localholst:3001/
 app.get("/",(req,res)=>{
@@ -73,18 +73,30 @@ app.post("/connection", (req, res) => {
     })
 });
 
+var usersList = [];
+
 // Chat, insert messages in the database + detect (de)connection
 io.on('connection', (socket) => {
     // io.emit('message', `${name} joined the chat` )
+    usersList.push(name)
+    io.emit('log', `${usersList}`  )
     
     Messages.find().then(result => {
         socket.emit('output-messages', result)
     })
 
     socket.on('message', msg => {
-        console.log(msg)
+        let hours = new Date().getHours();
+        if (hours < 10)
+                hours = "0" + hours
 
-        msg = `${name} sent: ${msg}`
+        let minutes = new Date().getMinutes();
+        if (minutes < 10)
+                minutes = "0" + minutes
+
+        let time = `${hours}:${minutes}`;
+
+        msg = `${name} ${time} ${msg}`
 
         const message = new Messages({ msg });
         message.save().then(() => {
@@ -92,7 +104,14 @@ io.on('connection', (socket) => {
         })
     })
 
-    // socket.on('disconnect', () => {
-    //     io.emit('message', `${name} left the chat` )
-    // });
+    socket.on('disconnect', () => {
+        for( var i = 0; i < usersList.length; i++){ 
+    
+            if ( usersList[i] === name) { 
+        
+                usersList.splice(i, 1); 
+            }
+        }
+        io.emit('log', `${usersList}`  )
+    });
 });

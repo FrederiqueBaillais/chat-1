@@ -6,41 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://unpkg.com/tailwindcss@^2.0.4/dist/tailwind.min.css" rel="stylesheet">
-    <script defer src="./js/script.js"></script>
+    <script defer src="./JS/script.js"></script>
 </head>
 
-<body class="">
+<body>
 
-    <main class="h-4/6 w-screen bg-gray-700">
-        <div id="registerForm" class="h-screen w-1/2 flex flex-row m-auto shadow-2xl align-items bg-gray-800">
+    <main class="w-screen bg-gray-700">
+
+        <div id="loginForm" class="h-screen w-1/2 flex flex-row m-auto shadow-2xl align-items bg-gray-800">
+
+            <form action="/connection" method="POST" class="flex flex-col rounded-l lg:w-3/6 m-auto">
+                <h2 class="text-3xl text-white text-center">Login</h2>
+                <input class="rounded p-2 mt-3 border focus:outline-none shadow" id="name" name="name" placeholder="Name" required oninput="this.value = this.value.replace(/[^a-zA-Z-]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" />
+                <br>
+                <input class="rounded p-2 mt-3 border focus:outline-none shadow" id="password" name="password" placeholder="Password" required />
+                <br>
+                <input type="submit" value="Submit" id="submit" class="lg:float-none py-3 px-4 mt-3 bg-blue-400 text-gray-100" />
+                <div onclick="showRegister()" class="mt-2 text-gray-100 text-center cursor-pointer hover:text-blue-400">Register</div>
+            </form>
+                
+
+        </div>
+
+        <div id="registerForm" class="hidden h-screen w-1/2 flex flex-row m-auto shadow-2xl align-items bg-gray-800">
             
             <form action="/sign_up" method="POST" class="flex flex-col rounded-l lg:w-3/6 m-auto">
                 <h2 class="text-3xl text-white text-center">Register</h2>
-                <input class="rounded p-2 mt-3 border focus:outline-none shadow" id="name" name="name" placeholder="Name" required />
+                <input class="rounded p-2 mt-3 border focus:outline-none shadow" id="name" name="name" placeholder="Name" required oninput="this.value = this.value.replace(/[^a-zA-Z-]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" />
                 <br>
                 <input class="rounded p-2 mt-3 border focus:outline-none shadow" id="email" name="email" placeholder="Email" required />
                 <br>
                 <input class="rounded p-2 mt-3 border focus:outline-none shadow" id="password" name="password" placeholder="Password" required />
                 <br>
                 <input type="submit" value="Submit" id="submit" class="lg:float-none py-3 px-4 mt-3 bg-blue-400 text-gray-100" />
-                <button onclick="showLogin()" class="lg:float-none py-3 px-4 mt-3 bg-blue-400 text-gray-100 text-center">Login</button>
+                <div onclick="showLogin()" class="mt-2 text-gray-100 text-center cursor-pointer hover:text-blue-400">Login</div>
             </form>
                 
         </div>
-
-        <div id="loginForm" class="hidden h-screen w-1/2 flex flex-row m-auto shadow-2xl align-items bg-gray-800">
-
-            <form action="/connection" method="POST" class="flex flex-col rounded-l lg:w-3/6 m-auto">
-                <h2 class="text-3xl text-white text-center">Login</h2>
-                <input class="rounded p-2 mt-3 border focus:outline-none shadow" id="name" name="name" placeholder="Name" required />
-                <br>
-                <input class="rounded p-2 mt-3 border focus:outline-none shadow" id="password" name="password" placeholder="Password" required />
-                <br>
-                <input type="submit" value="Submit" id="submit" class="lg:float-none py-3 px-4 mt-3 bg-blue-400 text-gray-100" />
-                <button onclick="showRegister()" class="lg:float-none py-3 px-4 mt-3 bg-blue-400 text-gray-100 text-center">Register</button>
-            </form>
-        </div>
-
     </main>
 
 </body>
