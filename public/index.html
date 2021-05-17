@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Chat Connection</title>
+    <link href="https://unpkg.com/tailwindcss@^2.0.4/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./Images/chat.png">
+</head>
+
+<body>
+
+    <main class="w-screen bg-gray-700">
+
+        <div id="loginForm" class="h-screen w-1/2 flex flex-row m-auto shadow-2xl align-items bg-gray-800">
+
+            <form action="/connection" method="POST" class="flex flex-col rounded-l lg:w-3/6 m-auto">
+                <h2 class="text-3xl text-white text-center">Login</h2>
+                <br>
+                <input class="rounded p-2 mt-3 focus:outline-none shadow" id="name" name="name" placeholder="Name" required oninput="this.value = this.value.replace(/[^a-zA-Z-]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" />
+                <br>
+                <input class="rounded p-2 mt-3 focus:outline-none shadow" id="password" name="password" placeholder="Password" required />
+                <br>
+                <input type="submit" value="Submit" id="submit" class="lg:float-none py-3 px-4 mt-3 bg-blue-400 text-gray-100" />
+                <div onclick="showRegister()" class="mt-2 text-gray-100 text-center cursor-pointer hover:text-blue-400">Register</div>
+            </form>
+                
+
+        </div>
+
+        <div id="registerForm" class="hidden h-screen w-1/2 flex flex-row m-auto shadow-2xl align-items bg-gray-800">
+            
+            <form action="/sign_up" method="POST" class="flex flex-col rounded-l lg:w-3/6 m-auto">
+                <h2 class="text-3xl text-white text-center">Register</h2>
+                <br>
+                <input class="rounded p-2 mt-3 focus:outline-none shadow" id="name" name="name" placeholder="Name" required oninput="this.value = this.value.replace(/[^a-zA-Z-]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" />
+                <br>
+                <input class="rounded p-2 mt-3 focus:outline-none shadow" id="email" name="email" placeholder="Email" required />
+                <br>
+                <input class="rounded p-2 mt-3 focus:outline-none shadow" id="password" name="password" placeholder="Password" required />
+                <br>
+                <input type="submit" value="Submit" id="submit" class="lg:float-none py-3 px-4 mt-3 bg-blue-400 text-gray-100" />
+                <div onclick="showLogin()" class="mt-2 text-gray-100 text-center cursor-pointer hover:text-blue-400">Login</div>
+            </form>
+                
+        </div>
+    </main>
+
+    <script defer src="./JS/script.js"></script>
+
+</body>
+</html>
