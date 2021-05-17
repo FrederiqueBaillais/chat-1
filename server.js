@@ -7,6 +7,8 @@ const app = express()
 // Static files are stored in public folder
 app.use(bodyParser.json())
 app.use(express.static('public'))
+//à voir si ca ne fonctionne pas mieux ainsi
+//app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({
     extended:true
 }))
