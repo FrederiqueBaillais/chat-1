@@ -1,4 +1,4 @@
-const io = require('socket.io')(3000)
+const io = require('socket.io')(5000)
 
 const express = require("express")
 const bodyParser = require("body-parser")
@@ -30,7 +30,7 @@ app.get("/",(req,res)=>{
         "Allow-access-Allow-Origin": '*'
     })
     return res.redirect('index.html');
-}).listen(3001);
+}).listen(5001);
 
 // Register, record and insert infos in the database + redirect to chat.html
 app.post("/sign_up",(req,res)=>{
