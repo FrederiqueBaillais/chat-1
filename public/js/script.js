@@ -12,7 +12,7 @@ function showLogin() {
 
 // Socket
 
-const socket = io('http://localhost:3000');
+const socket = io('https://www.unpkg.com/socket.io-client@2.3.0/dist/socket.io.js');
 const messages = document.getElementById('messages');
 const list = document.getElementById('usersList');
 const messageForm = document.getElementById('messageForm');
