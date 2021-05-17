@@ -1,3 +1,5 @@
+// Login and Register
+
 function showRegister() {
     document.getElementById('registerForm').classList.remove("hidden")
     document.getElementById('loginForm').classList.add("hidden")
@@ -7,6 +9,8 @@ function showLogin() {
     document.getElementById('registerForm').classList.add("hidden")
     document.getElementById('loginForm').classList.remove("hidden")
 }
+
+// Socket
 
 const socket = io('http://localhost:3000');
 const messages = document.getElementById('messages');
